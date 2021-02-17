@@ -11,12 +11,15 @@ export class HeaderComponent implements OnInit {
 // para la navegacion de usa 
 // router
   constructor(public _servicio:InfoPaginaService,
-              public route:Router) { }
+              public router:Router) { }
 
   ngOnInit(): void {
   }
 
-  buscarProducto(terminos:string){
-
+  buscarProducto(termino:string){
+    if(termino.length<1){
+      return;
+    }
+    this.router.navigate(['/search',termino]);
   }
 }
